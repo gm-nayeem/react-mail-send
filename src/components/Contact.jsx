@@ -3,7 +3,7 @@ import styled from "styled-components";
 import emailjs from "@emailjs/browser";
 
 
-const Contact = () => {
+const Contact = ({setPopupMessage}) => {
     const form = useRef();
 
     const sendEmail = (e) => {
@@ -11,10 +11,10 @@ const Contact = () => {
 
         emailjs
             .sendForm(
-                "replace with service id",
-                "replace with template id",
+                "service_ygfb7os",
+                "template_z0mcvrd",
                 form.current,
-                "replace with user id"
+                "odOo0SQqnh0h_xxky"
             )
             .then(
                 (result) => {
@@ -25,28 +25,30 @@ const Contact = () => {
                     console.log(error.text);
                 }
             );
+
+        setPopupMessage(true);    
+        e.target.reset();        
     };
 
     return (
-
         <StyledContactForm>
             <form ref={form} onSubmit={sendEmail}>
                 <label>Name</label>
-                <input type="text" name="user_name" />
+                <input type="text" name="user_name" required/>
                 <label>Email</label>
-                <input type="email" name="user_email" />
+                <input type="email" name="user_email" required/>
                 <label>Message</label>
-                <textarea name="message" />
+                <textarea name="message" required/>
                 <input type="submit" value="Send" />
             </form>
         </StyledContactForm>
-
     );
 };
 
 export default Contact;
 
-// Styles
+
+// Styles using styled components
 const StyledContactForm = styled.div`
   width: 400px;
 

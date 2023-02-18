@@ -4,3 +4,18 @@
     align-items: center;
     justify-content: center;
 }
+
+.message {
+    margin-left: auto;
+    margin-right: 50px;
+    background-color: forestgreen;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.message:hover {
+    background-color: orange;
+    color: black;
+}
